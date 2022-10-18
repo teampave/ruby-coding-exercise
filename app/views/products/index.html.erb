@@ -1,13 +1,14 @@
-<div style="display: flex; flex-direction: column; margin: auto auto;">
-<% @products.each do |product| %>
-  <%= link_to product_path(product) do %>
-    <div style="display: flex; flex-direction: row; margin-top: 20px;">
-      <img src="https://picsum.photos/150?v=<%= product.id %>">
-      <div style="flex-direction: column; margin-left: 30px;">
-        <h3><%= product.title %></h3>
-        <p><%= product.description %></p>
-        <p><%= product.cost.format(no_cents_if_whole: true) %></p>
+<div style="display: flex; flex-direction: column; margin: auto auto; margin-top: 30px;">
+  <% @products.each do |product| %>
+    <%= link_to product_path(product) do %>
+      <div style="display: flex; flex-direction: row; margin-top: 20px;">
+        <img src="https://picsum.photos/150?v=<%= product.id %>">
+        <div style="flex-direction: column; margin-left: 30px;">
+          <h3><%= product.title %></h3>
+          <p><%= product.description %></p>
+          <p><%= product.cost.format(no_cents_if_whole: true) %></p>
+        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>
