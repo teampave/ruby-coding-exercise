@@ -7,7 +7,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-product_names = ["Guitar", "Record Player", "Stereo", "MIDI Interface", ]
+product_names = ["Guitar", "Record Player", "Stereo", "MIDI Interface"]
 
 product_names.each do |name|
   Product.create(
