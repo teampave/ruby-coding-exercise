@@ -1,0 +1,17 @@
+<div style="display: flex; flex-direction: column; margin: auto auto; margin-top: 30px;">
+  <% if @basket_items.any? %>
+    <% @basket_items.each do |product| %>
+      <%= render partial: "products/product", locals: { product: product } %>
+      <%= render partial: "controls", locals: { product: product } %>
+      <%= render partial: "subtotal", locals: { product: product } %>
+    <% end %>
+    <div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%; border-top: 1px solid gray;">
+      <p>Basket Total:</p>
+      <p><%= basket_total_cost.format(no_cents_if_whole: true) %></p>
+    </div>
+
+    <button>Checkout</button>
+  <% else %>
+    <h3>Basket is empty</h3>
+  <% end %>
+</div>

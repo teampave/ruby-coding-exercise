@@ -1,0 +1,16 @@
+<div style="display: flex; margin: auto auto; justify-content: space-evenly; width: 250px;">
+  <p style="margin-top: 15px;">Quantity:</p>
+  <%= button_to basket_path(id: product.id), method: :delete do %>
+    <div>
+      <p>- 1</p>
+    </div>
+  <% end %>
+
+  <p><%= basket_item_count(product.id) %></p>
+
+  <%= button_to basket_path(id: product.id) do %>
+    <div>
+      <p>+ 1</p>
+    </div>
+  <% end %>
+</div>

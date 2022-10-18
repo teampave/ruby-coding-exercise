@@ -5,5 +5,10 @@
     <p><%= @product.description %></p>
     <p><%= @product.additional_details %></p>
     <p><%= @product.cost.format(no_cents_if_whole: true) %></p>
+    <%= button_to basket_path(id: @product.id) do %>
+      <div>
+        <p>Add to Basket</p>
+      </div>
+    <% end %>
   </div>
 </div>

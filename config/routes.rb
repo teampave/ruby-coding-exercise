@@ -6,4 +6,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "products#index"
   resources :products
+
+  # basket 
+  get "basket", to: "basket#index"
+  post "basket", to: "basket#create"
+  delete "basket", to: "basket#destroy"
 end
