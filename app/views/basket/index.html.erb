@@ -1,13 +1,14 @@
 <div style="display: flex; flex-direction: column; margin: auto auto; margin-top: 30px;">
   <% if @basket_items.any? %>
     <% @basket_items.each do |product| %>
-      <%= render partial: "products/product", locals: { product: product } %>
-      <%= render partial: "controls", locals: { product: product } %>
-      <%= render partial: "subtotal", locals: { product: product } %>
+      <%= turbo_frame_tag dom_id(product) do %>
+        <%= render partial: "item_breakdown", locals: { product: product } %>
+      <% end %>
     <% end %>
     <div style="display: flex; flex-direction: row; justify-content: space-evenly; width: 100%; border-top: 1px solid gray;">
-      <p>Basket Total:</p>
-      <p><%= basket_total_cost.format(no_cents_if_whole: true) %></p>
+      <%= turbo_frame_tag "basket_total" do %>
+        <%= render partial: "total" %>
+      <% end %>
     </div>
 
     <button>Checkout</button>

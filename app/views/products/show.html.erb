@@ -1,14 +1,13 @@
 <div style="display: flex; flex-direction: row; margin: auto auto; margin-top: 30px;">
   <img src="https://picsum.photos/150?v=<%= @product.id %>">
   <div style="flex-direction: column; margin-left: 30px;">
-    <h3><%= @product.title %></h3>
+    <h3 id="title"><%= @product.title %></h3>
     <p><%= @product.description %></p>
     <p><%= @product.additional_details %></p>
     <p><%= @product.cost.format(no_cents_if_whole: true) %></p>
-    <%= button_to basket_path(id: @product.id) do %>
-      <div>
-        <p>Add to Basket</p>
-      </div>
+
+    <%= button_to basket_path(id: @product.id), html: { id: "add_to_basket" } do %>
+      <p>Add to Basket</p>
     <% end %>
   </div>
 </div>
